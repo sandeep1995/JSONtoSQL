@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fusionboard.iml" filepath="$PROJECT_DIR$/.idea/modules/fusionboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fusionboard_main.iml" filepath="$PROJECT_DIR$/.idea/modules/fusionboard_main.iml" group="fusionboard" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fusionboard_test.iml" filepath="$PROJECT_DIR$/.idea/modules/fusionboard_test.iml" group="fusionboard" />
+    </modules>
+  </component>
+</project>

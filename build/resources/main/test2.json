@@ -1,0 +1,92 @@
+{
+  "$QUERY_SELECT": {
+    "fields": {
+      "$FIELDS": [{
+        "$FIELD": {
+          "name": "City"
+        }
+      }, {
+        "$FIELD": {
+          "name": "Name"
+        }
+      }, {
+        "$FIELD": {
+          "name": "Country"
+        }
+      }]
+    },
+    "source": {
+      "$SOURCE": [{
+        "$TABLE": {
+          "name": "Customers"
+        }
+      }]
+    },
+    "where": {
+      "$CONDITION": {
+        "operation": "AND",
+        "left": {
+          "$CONDITION": {
+            "operation": "LIKE",
+            "left": {
+              "$FIELD": {
+                "name": "City"
+              }
+            },
+            "right": {
+              "$HOLDER": {
+                "type": "STR",
+                "value": "a_%_%"
+              }
+            }
+          }
+        },
+        "right": {
+          "$CONDITION": {
+            "operation": "=",
+            "left": {
+              "$FIELD": {
+                "name": "City"
+              }
+            },
+            "right": {
+              "$HOLDER": {
+                "type": "STR",
+                "value": "Sandeep Acharya"
+              }
+            }
+          }
+        }
+      }
+    },
+    "orders": {
+      "$ORDERS": [{
+        "$ORDER": {
+          "field": {
+            "$FIELD": {
+              "name": "City"
+            }
+          },
+          "direction": "ASC"
+        }
+      }]
+    },
+    "group": {
+      "$GROUP": {
+        "fields": {
+          "$FIELDS": [{
+            "$FIELD": {
+              "name": "City"
+            }
+          }]
+        }
+      }
+    },
+    "limit": {
+      "$HOLDER": {
+        "type": "NUM",
+        "value": 100
+      }
+    }
+  }
+}
