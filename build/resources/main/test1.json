@@ -3,12 +3,13 @@
     "fields": {
       "$FIELDS": [{
         "$FIELD": {
-          "name": "*"
+          "name": "ContentId",
+          "alias": "Con"
         }
       }]
     },
-    "source": {
-      "$SOURCE": [{
+    "sources": {
+      "$SOURCES": [{
         "$TABLE": {
           "name": "Customers"
         }

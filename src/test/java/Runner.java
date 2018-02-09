@@ -10,7 +10,7 @@ public class Runner {
     Map<String, Object> jsonMap;
 
     try {
-      jsonString = Utils.readJson("test1.json");
+      jsonString = Utils.readJson("test2.json");
     } catch (Exception e) {
       e.printStackTrace();
     }

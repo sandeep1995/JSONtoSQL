@@ -2,12 +2,13 @@ package com.fusioncharts.fusionboard.utils;
 
 /**
  * Created by sandeepacharya on 09/02/18.
+ * Only those `key` strings which is a part of the JSON
  */
 public class KConst {
   public final static String $QUERY_SELECT = "$QUERY_SELECT";
   public final static String alias = "alias";
   public final static String fields = "fields";
-  public final static String source = "source";
+  public final static String sources = "sources";
   public final static String distinct = "distinct";
   public final static String orders = "orders";
   public final static String group = "group";
@@ -19,9 +20,8 @@ public class KConst {
   public final static String $FIELDS = "$FIELDS";
   public final static String $TABLE = "$TABLE";
   public final static String name = "name";
-  public final static String $SOURCE = "$SOURCE";
+  public final static String $SOURCES = "$SOURCES";
   public final static String $ORDER = "$ORDER";
-  public final static String field = "field";
   public final static String direction = "direction";
   public final static String $ORDERS = "$ORDERS";
   public final static String $HOLDER = "$HOLDER";

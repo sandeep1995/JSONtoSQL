@@ -15,8 +15,8 @@
         }
       }]
     },
-    "source": {
-      "$SOURCE": [{
+    "sources": {
+      "$SOURCES": [{
         "$TABLE": {
           "name": "Customers"
         }

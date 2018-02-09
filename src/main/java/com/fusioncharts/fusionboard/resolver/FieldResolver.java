@@ -1,6 +1,7 @@
 package com.fusioncharts.fusionboard.resolver;
 
 import com.fusioncharts.fusionboard.utils.KConst;
+import com.fusioncharts.fusionboard.utils.SConst;
 import org.stringtemplate.v4.ST;
 
 import java.util.Map;
@@ -11,13 +12,12 @@ import java.util.Map;
 public class FieldResolver implements PartResolver{
 
   private Map parts, $FIELD;
-  private String name, alias, fieldStr;
-  private final static String FIELD_TEMPLATE = "<name><if(isAlias)> AS <alias><endif>";
+  private String name, alias;
   private ST st;
 
   public FieldResolver(Map parts) {
     this.parts = parts;
-    this.st = new ST(FIELD_TEMPLATE);
+    this.st = new ST(SConst.FIELD_TEMPLATE);
     this.populateTemplate();
   }
 
@@ -30,7 +30,7 @@ public class FieldResolver implements PartResolver{
   private void dispatch() {
     this.st.add(KConst.name, this.name);
     if (this.alias != null) {
-      this.st.add("isAlias", true);
+      this.st.add(SConst.isAlias, true);
       this.st.add(KConst.alias, this.alias);
     }
   }

@@ -1,6 +1,8 @@
 package com.fusioncharts.fusionboard.resolver;
 
 import com.fusioncharts.fusionboard.utils.KConst;
+import com.fusioncharts.fusionboard.utils.SConst;
+import org.stringtemplate.v4.ST;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,9 +13,11 @@ import java.util.Map;
 public class FieldsResolver implements PartResolver {
   private Map parts;
   private ArrayList <Map> $FIELDS;
+  private ST st;
 
   public FieldsResolver(Map parts) {
     this.parts = parts;
+    this.st = new ST(SConst.FILEDS_TEMPLATE);
     this.populateTemplate();
   }
 
@@ -24,7 +28,7 @@ public class FieldsResolver implements PartResolver {
   private void dispatch() {
     for (Map field : this.$FIELDS) {
       FieldResolver fieldResolver = new FieldResolver(field);
-      System.out.println(fieldResolver.getString());
+      this.st.add(SConst.field, fieldResolver.getString());
     }
   }
 
@@ -34,6 +38,6 @@ public class FieldsResolver implements PartResolver {
   }
   @Override
   public String getString() {
-    return null;
+    return this.st.render();
   }
 }

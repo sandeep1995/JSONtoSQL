@@ -1,5 +1,6 @@
 package com.fusioncharts.fusionboard.resolver;
 
+import com.fusioncharts.fusionboard.utils.SConst;
 import org.stringtemplate.v4.*;
 
 import com.fusioncharts.fusionboard.utils.KConst;
@@ -14,11 +15,10 @@ public class QuerySelectResolver implements PartResolver {
   private Map $QUERY_SELECT;
   private String alias;
   private ST st;
-  private final static String SELECT_TEMPLATE = "SELECT <fields> FROM <source>";
 
   public QuerySelectResolver(Map parts){
     this.parts = parts;
-    this.st = new ST(SELECT_TEMPLATE);
+    this.st = new ST(SConst.QUERY_SELECT_TEMPLATE);
     this.populateTemplate();
   }
 
@@ -35,10 +35,10 @@ public class QuerySelectResolver implements PartResolver {
       this.st.add(KConst.fields, fieldsResolver.getString());
     }
 
-    if (this.$QUERY_SELECT.containsKey(KConst.source)) {
-      Map source = (Map) this.$QUERY_SELECT.get(KConst.source);
+    if (this.$QUERY_SELECT.containsKey(KConst.sources)) {
+      Map source = (Map) this.$QUERY_SELECT.get(KConst.sources);
       SourceResolver sourceResolver = new SourceResolver(source);
-      this.st.add(KConst.source, sourceResolver.getString());
+      this.st.add(KConst.sources, sourceResolver.getString());
     }
 
   }
