@@ -21,10 +21,6 @@ public class SqlConverter {
     this.json = json;
   }
 
-  public String getSqlStatement() {
-    this.convert();
-    return this.sqlStatement;
-  }
 
   private void createJsonMap() {
     JsonMapper mapper = new JsonMapper();
@@ -32,10 +28,10 @@ public class SqlConverter {
     this.jsonMap = mapper.getJSONObjectMap();
   }
 
-
-  public void convert() {
+  public String convert() {
     this.createJsonMap();
     this.selectResolver = new QuerySelectResolver(this.jsonMap);
     this.sqlStatement = this.selectResolver.getString();
+    return this.sqlStatement;
   }
 }

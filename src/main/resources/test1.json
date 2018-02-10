@@ -13,6 +13,25 @@
         "$TABLE": {
           "name": "Customers"
         }
+      }, {
+        "$QUERY_SELECT": {
+          "fields": {
+            "$FIELDS": [{
+              "$FIELD": {
+                "name": "ContentId",
+                "alias": "Con"
+              }
+            }]
+          },
+          "sources": {
+            "$SOURCES": [{
+              "$TABLE": {
+                "name": "Customers"
+              }
+            }]
+          }
+        },
+        "alias":"Second Table"
       }]
     }
   }

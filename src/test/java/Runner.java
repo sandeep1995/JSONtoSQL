@@ -10,14 +10,14 @@ public class Runner {
     Map<String, Object> jsonMap;
 
     try {
-      jsonString = Utils.readJson("test2.json");
+      jsonString = Utils.readJson("test1.json");
     } catch (Exception e) {
       e.printStackTrace();
     }
 
     if(!jsonString.isEmpty()) {
-      SqlConverter converter = new SqlConverter(jsonString);
-      String selectStatement = converter.getSqlStatement();
+      SqlConverter sqlConverter = new SqlConverter(jsonString);
+      String selectStatement = sqlConverter.convert();
       System.out.println(selectStatement);
     }
   }

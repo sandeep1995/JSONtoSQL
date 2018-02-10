@@ -41,6 +41,11 @@ public class QuerySelectResolver implements PartResolver {
       this.st.add(KConst.sources, sourceResolver.getString());
     }
 
+    if (this.alias != null) {
+      this.st.add(SConst.isAlias, true);
+      this.st.add(KConst.alias, this.alias);
+    }
+
   }
 
   private void populateTemplate() {

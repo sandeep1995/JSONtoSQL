@@ -3,7 +3,8 @@
     "fields": {
       "$FIELDS": [{
         "$FIELD": {
-          "name": "City"
+          "name": "City",
+          "alias": "C"
         }
       }, {
         "$FIELD": {

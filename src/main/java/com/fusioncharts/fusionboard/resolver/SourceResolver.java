@@ -32,6 +32,10 @@ public class SourceResolver implements PartResolver {
         this.st.add(SConst.source, tableResolver.getString());
       }
       // TODO: source can be another QUERY_SELECT
+      if (source.containsKey(KConst.$QUERY_SELECT)) {
+        QuerySelectResolver selectResolver = new QuerySelectResolver(source);
+        this.st.add(SConst.source, selectResolver.getString());
+      }
     }
   }
 
